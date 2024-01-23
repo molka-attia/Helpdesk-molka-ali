@@ -1,0 +1,321 @@
+<app-utilisateur></app-utilisateur>
+<div style="background-color: #ebf6ff;height: 200%;margin-top: -8%;">
+    
+   
+    
+    
+    
+    
+  <div style="margin-left: 23%;">
+ 
+      <div >
+         <!-- <button  class="btn btn-success add-btn" style="margin-left: 87%;margin-top:14% ;" (click)="onClickShowForm()">ajouter</button>  -->
+         <input type="button" value="Télécharger PDF" style="margin-left: 0%;margin-top:14% " class="btn btn-success" (click)="openPDF()"> 
+         </div>
+     
+      <form [formGroup]="formflitrer" style="margin-left: 70%; width: 75%;" (submit)="onefiltrerSubmit()">
+    
+        <div class="form-group">
+           <!-- <h3 style=" margin-left: 10%;margin-top: 2%;" *ngIf="admin" >groupe:</h3> -->
+           <select  style="width: 22%; "  class="form-control" id="groupe_id" formControlName="groupe_id" name="groupe_id"  >
+       
+              <option  *ngFor="let groupe of fetchedgroupes; let i = index" value={{groupe._id}}>{{groupe.specialite}}</option>
+              
+          
+            </select>
+        </div>
+        
+    <button style=" margin-left: 25%; margin-top: -6%; width: 10%; background: linear-gradient( #3bbbb4 15%, #2596be 100%)" type="submit"  class="btn post-actions__publish">Filtrer</button>
+  </form>
+
+
+
+
+  <mat-form-field  style="margin-top: 1%;">
+  <mat-label style="color: #008ea1;">Filtrer</mat-label>
+  <input matInput (keyup)="applyFilter($event)" style="color: #008ea1;" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div>
+
+  
+  <body>
+  <div class="container" id="htmlData"> 
+      <br>
+      <!-- <img src="./../../../../assets/images/1646762400162-assurance-carte-logo.png" style="width:5% ;margin-left: 90%;margin-top:0%;">
+      -->
+      <h1 style="color: black;margin-top: 0%;">  
+        Liste des tickets cloturés</h1>
+      <br>
+    
+    
+      <table mat-table [dataSource]="dataSource" matSort >
+         <!-- ID Column -->
+    <ng-container matColumnDef="spécialité">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;font-weight: 550;"> Spécialité </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> {{row.ticket_groupe[0].specialite}} </td>
+    </ng-container>
+
+   <!-- Progress Column -->
+   <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;font-weight: 550;">Description </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> {{row.description}} </td>
+    </ng-container>
+ 
+ 
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Priorité">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;font-weight: 550;" >Priorite</th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;" > <div  *ngIf="row.priorite =='Urgent'"><span class="status-produit color-one"></span>{{row.priorite}}</div> <div  *ngIf="row.priorite =='Moyenne'"><span class="status-produit color-two"></span>{{row.priorite}}</div> <div  *ngIf="row.priorite =='Faible'"><span class="status-produit color-three"></span>{{row.priorite}}</div></td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="Date de cloturation" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;font-weight: 550;" >Date de cloture</th>
+    <td mat-cell *matCellDef="let row" style="background-color: white;color: black;" > {{row.Datecloturation|date:'medium'}} </td>
+
+</ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="Date de création">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;font-weight: 550;"> 	Date de création </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> {{row.Datecreaation|date:'medium'}} </td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="affecter" style="margin-left: 10%;">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;font-weight: 550;"> 	affecter </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> <button class="btn btn-primary add-btn" style="width: 90%;" (click)="onClickShowAffecter(row)" >affecter</button> </td>
+    </ng-container> -->
+    <ng-container matColumnDef="consulter">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;font-weight: 550;"> 	Consulter </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> <button class="btn btn-primary add-btn" style="width: 90%; background: linear-gradient( #3bbbb4 15%, #2596be 100%)" (click)="onClickShowForm2(row)" >Consulter</button> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="7" style="background-color: white;color: black;">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  <br>
+  <h3 style="margin-left: 63%;font-weight: 500;">DH: {{date|date:'short'}}</h3>
+</div>
+</body>
+  <mat-paginator style="background-color: rgb(133, 214, 225);color: black;" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+</div>
+
+
+</div>
+
+</div>
+
+<!-- <div class="content">
+    
+
+    <main>
+    
+
+      <div >
+        <div >
+          <div class="case">
+            <div class="header-case">
+              <h2>Liste des tickets cloturer</h2>
+      
+            </div>
+            <div class="body-case">
+              <div class="tableau">
+                <table width="100%">
+                  <thead>
+                    <tr>
+                  
+                      <th >Description</th>
+                      <td>Priorité</td>
+                      <td>Date de création </td>
+                      <td>Date de cloturation </td>
+               
+                    
+                      
+                      <td>consulter</td>
+                      
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+               
+                    <tr  *ngFor="let ticket of fetchedTicket; let i = index" >
+                    
+                      <td *ngIf="ticket.description.length>20">{{ticket.description|slice:0:15}} ...</td>
+                      <td *ngIf="ticket.description.length<20" >{{ticket.description}}</td>
+                      <div *ngIf="ticket.priorite =='Urgent'">  
+                        <td><span class="status-produit color-one"></span>{{ticket.priorite}}</td>
+                       </div>
+                       <div *ngIf="ticket.priorite =='Moyenne'">  
+                        <td><span class="status-produit color-two"></span>{{ticket.priorite}}</td>
+                       </div>
+                       <div *ngIf="ticket.priorite =='Faible'">  
+                        <td><span class="status-produit color-three"></span>{{ticket.priorite}}</td>
+                       </div>
+                  
+                      <td>{{ticket.Datecreaation|date:'medium'}}</td>
+                      <td>{{ticket.Datecloturation|date:'medium'}}</td>
+                   
+                      
+ 
+                      <td><button class="btn btn-success add-btn" style="width: 100%;" (click)="onClickShowForm2(ticket)" >consulter</button> </td>
+                    
+                
+                    
+                   
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div> -->
+
+
+
+      
+        <div class="model-bg" style="margin-top: 0%;" *ngIf="showTicketDetails">
+              
+          <a class="close-button" (click)="onClickCloseForm2()">X</a>
+          <div class="edit" style="margin-top: -5%;">
+            <!-- create form -->
+            <!-- <form >
+              <h3>Ticket info</h3>
+             
+              <div>
+                
+                <h4 style="text-align: center;">{{currentticket.description}}</h4>
+               
+              <h5 style="text-align: center;">Etat:{{currentticket.etat}}</h5>
+            
+              <h5 style="text-align: center;">Demandeur:{{user.name}}</h5>
+              <h5 style="text-align: center;">technicien:{{technicienaffecte.name}}</h5>
+              <h5 style="text-align: center;">solution :{{currentticket.note}}</h5>
+              <button class="btn btn-success add-btn" style="width: 25%;"  (click)="onDeleteTiket(currentticket._id)" >Supprimer</button> 
+   </div>
+        
+       
+            </form> -->
+            <div id="generic_price_table" style="margin-top: 0%;">   
+              <section>
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-md-22">
+                                  <!--PRICE HEADING START-->
+                                  <!-- <div class="price-heading clearfix">
+                                      <h3>Ticket info</h3>
+                                  </div> -->
+                                  <!--//PRICE HEADING END-->
+                              </div>
+                          </div>
+                      </div>
+                      <div class="container">
+                          
+                          <!--BLOCK ROW START-->
+                          <div class="row">
+                              <div class="col-md-12">
+                              
+                                <!--PRICE CONTENT START-->
+                                  <div class="generic_content clearfix">
+                                      
+                                      <!--HEAD PRICE DETAIL START-->
+                                      <div class="generic_head_price clearfix">
+                                      
+                                          <!--HEAD CONTENT START-->
+                                          <div class="generic_head_content clearfix">
+                                          
+                                            <!--HEAD START-->
+                                              <div class="head_bg"></div>
+                                              <div class="head">
+                                                  <span>{{currentticket.etat}}</span>
+                                              </div>
+                                              <!--//HEAD END-->
+                                              
+                                          </div>
+                                          <!--//HEAD CONTENT END-->
+                                          
+                                          <!--PRICE START-->
+                                          <div class="generic_price_tag clearfix">	
+                                              <span class="price">
+                                                  <span >{{currentticket.description}}</span>
+                                                  <!-- <span class="currency">99</span> -->
+                                                  <!-- <span class="cent">{{currentticket.description}}</span> -->
+                                                  <!-- <span class="month">/MON</span> -->
+                                              </span>
+                                          </div>
+                                          <!--//PRICE END-->
+                                          
+                                      </div>                            
+                                      <!--//HEAD PRICE DETAIL END-->
+                                      
+                                      <!--FEATURE LIST START-->
+                                      <div class="generic_feature_list">
+                                        <ul>
+                                            
+                                            
+                                              <li><span>Demandeur:</span> {{user.name}} {{user.prenom}}</li>
+                                              <li><span>technicien:</span> {{technicienaffecte.name}} {{technicienaffecte.prenom}}</li>
+                                              <li><span>Solution:</span> {{currentticket.note}}</li>
+                                          </ul>
+                                      </div>
+                                      <!--//FEATURE LIST END-->
+                                      
+                                      <!--BUTTON START-->
+                                      <div class="generic_price_btn clearfix">
+                                        <button (click)="onDeleteTiket(currentticket._id)">supprimer</button>
+                                       
+                                      </div>
+                                      <!--//BUTTON END-->
+                                      
+                                  </div>
+                                  <!--//PRICE CONTENT END-->
+                                      
+                              </div>
+                        
+                            
+                          </div>	
+                          <!--//BLOCK ROW END-->
+                          
+                      </div>
+                  </section>             
+                <!-- <footer>
+                    <a class="bottom_btn" href="#">&copy; MrSahar</a>
+                  </footer> -->
+              </div>
+          </div>
+      
+      
+      </div>
+    
+      <div class="model-bg" style="margin-left: -25%;" *ngIf="showTicketaffectation">
+
+        <a class="close-button" (click)="onClickCloseAffecter()">X</a>
+        <div class="edit">
+          <!-- create form -->
+          <form [formGroup]="formAffecter" (submit)="oneEditAffecter(currentticket._id)" >
+            <div class="form-group">
+              <label for="radio">Techniciens : </label>
+              <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
+              <select  class="form-control" id="type" formControlName="technicienid" name="type">
+                
+              <option  *ngFor="let technicien of listtechniciens; let i = index" value={{technicien._id}}>{{technicien.name}}</option>
+         
+              <!-- <option value="manager">manager</option> -->
+            </select>
+            </div>
+         
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+    
+    
+    </div>
+    
+    
+

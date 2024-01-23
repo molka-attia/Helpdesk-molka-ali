@@ -1,0 +1,432 @@
+<div style="background-color: #ebf6ff;height: 500%;margin-top: -5%;">
+    
+   
+    
+    
+    
+    
+  <div style="margin-left: 23%;">
+ <br>
+ <br>
+ <br>
+ <button  class="btn btn-success add-btn" style="margin-left: 0%;margin-top:10% ;width: 80px;background-color: #c7ca07;" (click)="onClickShowForm()">Ajouter</button> 
+      
+ <div style="margin-left: 87%;">
+      
+         <!-- <input type="button" value="Download PDF" style="margin-top: -6%;" class="btn btn-success" (click)="openPDF()">  -->
+         </div>
+     
+      <!-- <form [formGroup]="formflitrer" style="margin-left: 70%; width: 75%;margin-top: 5%;" (submit)="onefiltrerSubmit()">
+    <div class="box">
+        <div class="form-group">
+          <div class="box" style="margin-top: -9%; margin-left:33% ;">
+       
+           <select  style="width: 22%; "  class="form-control" id="groupe_id" formControlName="groupe_id" name="groupe_id"  >
+       
+              <option  *ngFor="let groupe of fetchedgroupes; let i = index" value={{groupe._id}}>{{groupe.specialite}}</option>
+              
+          
+            </select>
+          </div>
+            </div>
+        </div>
+        
+    <button style=" margin-left: 25%; margin-top: -6%; width: 10%;" type="submit"  class="btn post-actions__publish">Filtrer</button>
+  </form> -->
+  <form [formGroup]="formflitrer" style="margin-left: 70%; width: 75%;margin-top:3% ;" (submit)="onefiltrerSubmit()">
+    
+    <div class="form-group" >
+      
+       <!-- <h3 style=" margin-left: 10%;margin-top: 2%;" *ngIf="admin" >groupe:</h3> -->
+       <!-- <select  style="width: 22%; "  class="form-control "   id="groupe_id" formControlName="groupe_id" name="groupe_id"    >
+      
+        
+           <option   *ngFor="let groupe of fetchedgroupes "  value={{groupe._id}}>{{groupe.specialite}}</option>
+        </select> -->
+        <!-- <img src="./../../../../assets/images/1646762400162-assurance-carte-logo.png" style="width: 50px;height: 50px;margin-left: 20%; "> -->
+        <div class="box" style="margin-top: -12%; margin-left:33% ;">
+          <select style="  -webkit-appearance: none;
+          -moz-appearance: none;
+          text-indent: 1px;
+          text-overflow: '';"  id="groupe_id" formControlName="groupe_id" name="groupe_id">
+            <option   *ngFor="let groupe of fetchedgroupes "  value={{groupe._id}}>{{groupe.specialite}}</option>
+          </select>
+        </div>
+    </div>
+    
+  
+<button style=" margin-left: 25%; margin-top: -6%; width: 10%; background: linear-gradient( #3bbbb4 15%, #2596be 100%);" type="submit"  class="btn post-actions__publish">Filtrer</button>
+</form>
+
+
+
+  <mat-form-field  style="margin-top: 1%;">
+  <mat-label style="color: #008ea1;">Filtrer</mat-label>
+  <input matInput (keyup)="applyFilter($event)" style="color: #008ea1;" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div>
+
+  
+  <body>
+  <div class="container" id="htmlData"> 
+      <br>
+      <!-- <img src="./../../../../assets/images/1646762400162-assurance-carte-logo.png" style="width:5% ;margin-left: 90%;margin-top:0%;">
+      -->
+      <h1 style="color: black;margin-top: 0%;">  
+        Liste des tickets attribués</h1>
+      <br>
+    
+    
+      <table mat-table [dataSource]="dataSource" matSort >
+         <!-- ID Column -->
+    <ng-container matColumnDef="spécialité">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;"> Spécialité </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> {{row.ticket_groupe[0].specialite}} </td>
+    </ng-container>
+
+   <!-- Progress Column -->
+   <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;">Déscription </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> {{row.description}} </td>
+    </ng-container>
+ 
+ 
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Priorité">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;" >Priorité</th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;" > <div  *ngIf="row.priorite =='Urgent'"><span class="status-produit color-one"></span>{{row.priorite}}</div> <div  *ngIf="row.priorite =='Moyenne'"><span class="status-produit color-two"></span>{{row.priorite}}</div> <div  *ngIf="row.priorite =='Faible'"><span class="status-produit color-three"></span>{{row.priorite}}</div></td>
+
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="Etat" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;" >état</th>
+    <td mat-cell *matCellDef="let row" style="background-color: white;color: black;" > <div  *ngIf="row.assignetech !=''">affecté</div> <div  *ngIf="row.assignetech ==''">non affecté</div> </td>
+
+</ng-container> -->
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="Date de création">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;font-weight: 550;"> 	Date de création </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> {{row.Datecreaation|date:'medium'}} </td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="m'affecter" style="margin-left: 10%;">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;"> 	m'affecter </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> <button class="btn btn-primary add-btn" style="width: 90%;" (click)="onclickaffecter(row._id)" >m'affecter</button> </td>
+    </ng-container> -->
+    <ng-container matColumnDef="consulter">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(133, 214, 225);color: black;"> 	Consulter </th>
+      <td mat-cell *matCellDef="let row" style="background-color: white;color: black;"> <button class="btn btn-primary add-btn" style="width: 50%;background: linear-gradient( #3bbbb4 15%, #2596be 100%)" (click)="onClickShowForm2(row)" >Consulter</button> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="7" style="background-color: white;color: black;">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  <br>
+  <h3 style="margin-left: 63%;font-weight: 500;">DH: {{date|date:'short'}}</h3>
+</div>
+</body>
+  <mat-paginator style="background-color: rgb(133, 214, 225);color: black;" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+</div>
+
+
+</div>
+
+</div>
+
+      <!-- <div class="model-bg" style="margin-left: -25%;" *ngIf="showTicketDetails">
+            
+        <a class="close-button" (click)="onClickCloseForm2()">X</a>
+        <div class="edit">
+     
+          <form >
+            <h3>Ticket info</h3>
+            <div>
+              
+              <h4 style="text-align: center;">{{currentticket.description}}</h4>
+         
+            <h5 style="text-align: center;">Etat:{{currentticket.etat}}</h5>
+          
+            <h5 style="text-align: center;">Demandeur:{{user.name}}</h5>
+            <h5 style="text-align: center;">technicien:{{technicienaffecte.name}}</h5>
+            <button class="btn btn-success add-btn" style="width: 25%;" (click)="onClickShowFormEdit()">Modifier</button> 
+            <button class="btn btn-success add-btn" style="width: 25%;"  (click)="onDeleteTiket(currentticket._id)" >Supprimer</button> 
+            <button type="submit" class="btn btn-primary" (click)="onClickShowcloturation(currentticket)">Cloturer</button>
+          </div>
+       
+     
+          </form>
+        </div>
+    
+    
+    </div>
+   -->
+   <div class="model-bg" style="margin-left: 0%;" *ngIf="showTicketaffectation">
+
+      <a class="close-button" (click)="onClickCloseAffecter()">X</a>
+      <div class="edit">
+        <!-- create form -->
+        <form [formGroup]="formAffecter" (submit)="oneEditAffecter(currentticket._id)" >
+          <div class="form-group">
+            <label for="radio">Techniciens : </label>
+            <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
+            <select  class="form-control" id="type" formControlName="technicienid" name="type">
+              
+            <option  *ngFor="let technicien of listtechniciens; let i = index" value={{technicien._id}}>{{technicien.name}}</option>
+       
+            <!-- <option value="manager">manager</option> -->
+          </select>
+          </div>
+       
+          <button type="submit" class="btn btn-primary">ajouter</button>
+        </form>
+      </div>
+  
+  
+  </div>
+  
+  
+  <div class="model-bg" style="margin-left: 0%;" *ngIf="showTicketcloturation ">
+
+    <a class="close-button" (click)="onClickClosecloturation()">X</a>
+    <div class="edit">
+      <!-- create form -->
+      <form [formGroup]="formclourer" (submit)="onCloturerTiket(currentticket._id,currentticket.demandeur)" >
+        <div class="form-group">
+          <label for="note">Comment le problème a été résolu ? </label>
+         <textarea class="form-control" id="note" formControlName="note" placeholder="decrit la solution"></textarea>
+        </div>
+     
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+    </div>
+
+
+</div>
+
+
+<!-- </div> -->
+
+<div class="model-bg"style="margin-left: 0%;" *ngIf="showAddUserForm">
+
+<a class="close-button" (click)="onClickCloseForm()">X</a>
+<div class="edit">
+  <!-- create form -->
+  <form [formGroup]="formaddTicket" (submit)="onAddSubmit()">
+    
+    <div class="form-group">
+ <label for="description">Le problème</label>
+ <textarea  class="form-control" id="description" formControlName="description" placeholder="decrit le problème">
+ </textarea>
+</div>
+<!-- <div class="form-group">
+ <label for="email">User Email : </label>
+ <input type="text" class="form-control" id="email" formControlName="email" placeholder="Enter user email">
+</div>
+<div class="form-group">
+ <label for="password">User password : </label>
+ <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter user password">
+</div> -->
+<div class="form-group">
+ <label for="radio">priorité : </label>
+ <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
+ <select class="form-control" id="priorite" formControlName="priorite" name="priorite">
+ <option value="Faible">faible</option>
+ <option value="Moyenne">moyenne</option>
+ <option value="Urgent">urgent</option>
+</select>
+</div>
+<div class="form-group">
+<label for="radio">problème de: </label>
+<!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
+<select class="form-control" id="specialite" formControlName="specialite" name="specialite">
+<option   *ngFor="let groupe of fetchedgroupes" value={{groupe._id}}>{{groupe.specialite}}</option>
+
+</select>
+</div>
+<button type="submit" class="btn btn-primary">Envoyer</button>
+</form>
+</div>
+
+
+</div>
+
+
+<div class="model-bg"style="margin-left: 0%;" *ngIf="showEditTicketForm">
+
+<a class="close-button" (click)="onClickCloseFormEdit()">X</a>
+<div class="edit">
+  <!-- create form -->
+  <form [formGroup]="formeditTicket" (submit)="onEditSubmit(currentticket._id)">
+    
+    <div class="form-group">
+ <label for="description">Le problème</label>
+ <textarea  class="form-control" id="description" formControlName="description" placeholder="decrit le problème">
+ </textarea>
+</div>
+<!-- <div class="form-group">
+ <label for="email">User Email : </label>
+ <input type="text" class="form-control" id="email" formControlName="email" placeholder="Enter user email">
+</div>
+<div class="form-group">
+ <label for="password">User password : </label>
+ <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter user password">
+</div> -->
+<div class="form-group">
+ <label for="radio">priorité : </label>
+ <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
+ <select class="form-control" id="priorite" formControlName="priorite" name="priorite">
+ <option value="Faible">faible</option>
+ <option value="Moyenne">moyenne</option>
+ <option value="Urgent">urgent</option>
+</select>
+</div>
+<div class="form-group">
+<label for="radio">problème de: </label>
+<!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
+<select class="form-control" id="specialite" formControlName="specialite" name="specialite">
+<option   *ngFor="let groupe of fetchedgroupes" value={{groupe._id}}>{{groupe.specialite}}</option>
+
+</select>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+
+
+</div>
+
+<div class="model-bg" style="margin-left: 0%;margin-top: 0%;" *ngIf="showTicketDetails">
+            
+<a class="close-button" (click)="onClickCloseForm2()">X</a>
+<div class="edit" style="margin-top: -5%;">
+  <!-- create form -->
+  <!-- <form >
+    <h3>Ticket info</h3>
+   
+    <div>
+      
+      <h4 style="text-align: center;">{{currentticket.description}}</h4>
+     
+    <h5 style="text-align: center;">Etat:{{currentticket.etat}}</h5>
+  
+    <h5 style="text-align: center;">Demandeur:{{user.name}}</h5>
+    <h5 style="text-align: center;">technicien:{{technicienaffecte.name}}</h5>
+    <h5 style="text-align: center;">solution :{{currentticket.note}}</h5>
+    <button class="btn btn-success add-btn" style="width: 25%;"  (click)="onDeleteTiket(currentticket._id)" >Supprimer</button> 
+</div>
+
+
+  </form> -->
+  <div id="generic_price_table" style="margin-top: 0%;">   
+    <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-22">
+                        <!--PRICE HEADING START-->
+                        <!-- <div class="price-heading clearfix">
+                            <h3>Ticket info</h3>
+                        </div> -->
+                        <!--//PRICE HEADING END-->
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                
+                <!--BLOCK ROW START-->
+                <div class="row">
+                    <div class="col-md-12">
+                    
+                      <!--PRICE CONTENT START-->
+                        <div class="generic_content clearfix">
+                            
+                            <!--HEAD PRICE DETAIL START-->
+                            <div class="generic_head_price clearfix">
+                            
+                                <!--HEAD CONTENT START-->
+                                <div class="generic_head_content clearfix">
+                                
+                                  <!--HEAD START-->
+                                    <div class="head_bg"></div>
+                                    <div class="head">
+                                        <span>{{currentticket.etat}}</span>
+                                    </div>
+                                    <!--//HEAD END-->
+                                    
+                                </div>
+                                <!--//HEAD CONTENT END-->
+                                
+                                <!--PRICE START-->
+                                <div class="generic_price_tag clearfix">	
+                                    <span class="price">
+                                        <span >{{currentticket.description}}</span>
+                                        <!-- <span class="currency">99</span> -->
+                                        <!-- <span class="cent">{{currentticket.description}}</span> -->
+                                        <!-- <span class="month">/MON</span> -->
+                             
+                                    </span>
+                                </div>
+                                <!--//PRICE END-->
+                                
+                            </div>                            
+                            <!--//HEAD PRICE DETAIL END-->
+                            
+                            <!--FEATURE LIST START-->
+                            <div class="generic_feature_list">
+                              <ul>
+                                  
+                                  
+                                <li><span>Demandeur:</span> {{user.name}} {{user.prenom}}</li>
+                                <li><span>technicien:</span> {{technicienaffecte.name}} {{technicienaffecte.prenom}}</li>
+                                <li *ngIf="(currentticket.Dateaffectation!=null)&&(currentticket.Dateaffectation!=currentticket.Datecreaation)"><span >réafecté le {{currentticket.Dateaffectation |date:'medium'}}</span> </li>
+                                <!-- <li><span>technicien:</span> {{technicienaffecte.name}}</li> -->
+                                <li *ngIf="currentticket.etat!='en cours de traitement'">pas encore traité</li>
+                                <li *ngIf="currentticket.etat=='en cours de traitement'">{{currentticket.etat}}</li>
+                                <!-- <li><span>Solution:</span> {{currentticket.note}}</li> -->
+                            </ul>
+                            </div>
+                            <div class="generic_feature_list">
+                              <ul>
+                                  
+                                  
+                                    
+                                    <!-- <li style="background-color: #afe4ea"> <button style="background: none; color: white;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;" (click)="onClickShowFormEdit()">modifier</button></li> -->
+                                    <li style="background-color: #95c5cb"> <button style="background: none; color: white;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;" (click)="commencertraitement(currentticket._id)">changer l'état</button></li>
+                                    <li style="background-color: #00a5bb"> <button style="background: none; color: white;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;" (click)="onClickShowcloturation(currentticket)">cloturer</button></li>
+                                    <li style="background-color: #008ea1"> <button style="background: none; color: white;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;" (click)="onDeleteTiket(currentticket._id)">supprimer</button></li>
+                                  </ul>
+                            </div>
+                            <!--//FEATURE LIST END-->
+                            
+                            <!--BUTTON START-->
+                             <!-- <div class="btn-group">
+                              <button (click)="onDeleteTiket(currentticket._id)">supprimer</button>
+                              <button  (click)="onClickShowFormEdit()">modifier</button>
+                              <button (click)="onClickShowcloturation(currentticket)">cloturer</button>
+                            </div> -->
+                  
+                            <!--//BUTTON END-->
+                            
+                        </div>
+                        <!--//PRICE CONTENT END-->
+                            
+                    </div>
+              
+                  
+                </div>	
+                <!--//BLOCK ROW END-->
+                
+            </div>
+        </section>             
+      <!-- <footer>
+          <a class="bottom_btn" href="#">&copy; MrSahar</a>
+        </footer> -->
+    </div>

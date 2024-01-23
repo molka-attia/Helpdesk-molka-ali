@@ -1,0 +1,850 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<app-admin></app-admin>
+<div class="content">
+    
+
+    <main>
+    
+
+      <div >
+        <div >
+          <div class="case">
+            <div class="header-case">
+              <h2>Liste des Groupes</h2>
+              <button style="background-color: rgba(39,154,189,255);" type="button" class="btn btn-primary" (click)="onClickShowForm()">Ajouter</button>
+            </div>
+            <div class="body-case">
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive project-list">
+                                <table class="table project-table table-centered table-nowrap" style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col" style="width: 10%;" >Groupe </th>
+                                            <!-- <th scope="col">Start Date</th> -->
+                                            <th scope="col" style="width: 15%;">Statut  </th>
+                                            <th scope="col" style="width: 15%;">Liste des membres</th> 
+                                            <th scope="col" style="width: 20%;">Équipe</th>
+                                            <th scope="col" style="width: 20%;">Progrès</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr  *ngFor="let ticket of fetchedTicket; let i = index">
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{ticket.specialite}}</td>
+                                            <!-- <td>02/5/2019</td> -->
+                                            <td *ngIf="fetchedgroupecloturer[i].numberOftickets*100/ticket.numberOftickets==100 ">
+                                                <span class="text-success font-12" ><i class="mdi mdi-checkbox-blank-circle mr-1"></i>términé</span>
+                                               
+                                            </td>
+                                            <td *ngIf="fetchedgroupecloturer[i].numberOftickets*100/ticket.numberOftickets!=100 ">
+                                              <span class="text-success font-12" ><i class="mdi mdi-checkbox-blank-circle mr-1"></i> en cours de traitement</span>
+                                             
+                                          </td>
+                                          <td><button style="background-color: #3abab4" type="button" class="btn btn-primary" (click)="onClickShowFormtechniciens(ticket._id)" >consulter les membres</button> </td>
+                                           
+                                            <td>
+                                                <div class="team">
+                                                    <a href="javascript: void(0);" class="team-member"  *ngFor="let membre of ticket.membre_groupe; let i = index" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
+                                                        <img  src="./../../../../assets/images/{{membre.user_img}}" class="rounded-circle avatar-xs" alt=""  (click)="onClickShowForm2(membre)" />
+                                                    </a>
+        
+                                                    <!-- <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Reggie James">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Gerald Mayberry">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar8.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0">Progrès <span class="float-right">{{fetchedgroupecloturer[i].numberOftickets*100/ticket.numberOftickets | number}}%</span></p>
+        
+                                                <div class="progress mt-2" style="height: 5px;">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: {{fetchedgroupecloturer[i].numberOftickets*100/ticket.numberOftickets}}%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+        
+                                            <td>
+                                                <div class="action">
+                                                  
+                                                   
+                                                    <a  class="text-success mr-4"    type="button" (click)="onClickShowFormEdit(ticket._id)" > <i class="fa fa-pencil h5 m-3" style="margin-top: -10%;" (click)="onClickShowFormEdit(ticket._id)"></i></a>
+                                                   
+                                                    <a type="button" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close" (click)="onClickDeleteGroupe(ticket._id)"> <i class="fa fa-remove h5 m-0"></i></a>
+                                                    <br>  <br> <br>
+                                                </div>
+                                            </td>
+                                        </tr>
+        
+                                        <!-- <tr>
+                                            <th scope="row">2</th>
+                                            <td>Landing page Design</td>
+                                            <td>04/6/2019</td>
+                                            <td>
+                                                <span class="text-primary font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Pending</span>
+                                            </td>
+                                            <td>
+                                                <div class="team">
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Deborah Mixon">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Scott Jessie">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0">Progress<span class="float-right">78%</span></p>
+        
+                                                <div class="progress mt-2" style="height: 5px;">
+                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 78%;" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+        
+                                            <td>
+                                                <div class="action">
+                                                    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+                                                    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+        
+                                        <!-- <tr>
+                                            <th scope="row">3</th>
+                                            <td>Multipurpose Landing Template</td>
+                                            <td>06/6/2019</td>
+                                            <td>
+                                                <span class="text-success font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Completed</span>
+                                            </td>
+                                            <td>
+                                                <div class="team">
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Neil Wing">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Stanley Barber">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Jack Krier">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0">Progress<span class="float-right">100%</span></p>
+        
+                                                <div class="progress mt-2" style="height: 5px;">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+        
+                                            <td>
+                                                <div class="action">
+                                                    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+                                                    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+                                        <!-- <tr>
+                                            <th scope="row">4</th>
+                                            <td>Blog Template Design</td>
+                                            <td>07/5/2019</td>
+                                            <td>
+                                                <span class="text-success font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Completed</span>
+                                            </td>
+                                            <td>
+                                                <div class="team">
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Reggie James">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar8.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Gerald Mayberry">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0">Progress<span class="float-right">100%</span></p>
+        
+                                                <div class="progress mt-2" style="height: 5px;">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+        
+                                            <td>
+                                                <div class="action">
+                                                    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+                                                    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+        
+                                        <!-- <tr>
+                                            <th scope="row">5</th>
+                                            <td>Brand logo design</td>
+                                            <td>08/6/2019</td>
+                                            <td>
+                                                <span class="text-primary font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Pending</span>
+                                            </td>
+                                            <td>
+                                                <div class="team">
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Deborah Mixon">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Scott Jessie">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0">Progress<span class="float-right">54%</span></p>
+        
+                                                <div class="progress mt-2" style="height: 5px;">
+                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 54%;" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+        
+                                            <td>
+                                                <div class="action">
+                                                    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+                                                    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+        
+                                        <!-- <tr>
+                                            <th scope="row">6</th>
+                                            <td>Redesign - Landing page</td>
+                                            <td>10/6/2019</td>
+                                            <td>
+                                                <span class="text-primary font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Pending</span>
+                                            </td>
+                                            <td>
+                                                <div class="team">
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Neil Wing">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Stanley Barber">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Jack Krier">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0">Progress<span class="float-right">41%</span></p>
+        
+                                                <div class="progress mt-2" style="height: 5px;">
+                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+        
+                                            <td>
+                                                <div class="action">
+                                                    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+                                                    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+                                        <!-- <tr>
+                                            <th scope="row">7</th>
+                                            <td>Redesign - Dashboard</td>
+                                            <td>12/5/2019</td>
+                                            <td>
+                                                <span class="text-success font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Completed</span>
+                                            </td>
+                                            <td>
+                                                <div class="team">
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Reggie James">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0">Progress<span class="float-right">100%</span></p>
+                                                <div class="progress mt-2" style="height: 5px;">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+        
+                                            <td>
+                                                <div class="action">
+                                                    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+                                                    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+        
+                                        <!-- <tr>
+                                            <th scope="row">8</th>
+                                            <td>Landing page Design</td>
+                                            <td>13/6/2019</td>
+                                            <td>
+                                                <span class="text-primary font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Pending</span>
+                                            </td>
+                                            <td>
+                                                <div class="team">
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Deborah Mixon">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Scott Jessie">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0">Progress<span class="float-right">84%</span></p>
+        
+                                                <div class="progress mt-2" style="height: 5px;">
+                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 84%;" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+        
+                                            <td>
+                                                <div class="action">
+                                                    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+                                                    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+        
+                                        <!-- <tr>
+                                            <th scope="row">9</th>
+                                            <td>Multipurpose Landing Template</td>
+                                            <td>15/6/2019</td>
+                                            <td>
+                                                <span class="text-success font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Completed</span>
+                                            </td>
+                                            <td>
+                                                <div class="team">
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Neil Wing">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+        
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Stanley Barber">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="rounded-circle avatar-xs" alt="" />
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0">Progress<span class="float-right">100%</span></p>
+        
+                                                <div class="progress mt-2" style="height: 5px;">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+        
+                                            <td>
+                                                <div class="action">
+                                                    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+                                                    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- end project-list -->
+        
+                            <!-- <div class="pt-3">
+                                <ul class="pagination justify-content-end mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+               
+        
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="model-bg" style="margin-left: -25%;"*ngIf="showAddUserForm">
+
+            <a class="close-button" (click)="onClickCloseForm()">X</a>
+            <div class="edit">
+              <!-- create form -->
+              <form [formGroup]="formaddGroupe" (submit)="onAddSubmit()">
+               
+                <div class="form-group">
+             <label for="name">Spécialite</label>
+             <input type="text" class="form-control" id="specialite" formControlName="specialite" placeholder="Entrer specialite">
+           </div>
+          
+         
+         
+          
+           <button type="submit" class="btn btn-primary">ajouter</button>
+         </form>
+            </div>
+        
+        
+        </div>
+        
+
+        
+<div class="model-bg"style="margin-left: -25%;" *ngIf="showEditGroupForm">
+
+    <a class="close-button" (click)="onClickCloseFormEdit()">X</a>
+    <div class="edit">
+      <!-- create form -->
+      <form [formGroup]="formEditGroupe" (submit)="onEditSubmit(cuurentgroupe)">
+        
+        <div class="form-group">
+     <label for="description">spécialite  </label>
+     <textarea  class="form-control" id="specialite" formControlName="specialite" placeholder="Spécialite">
+     </textarea>
+   </div>
+   
+  
+  
+   <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+    </div>
+  
+  </div>
+  
+        
+<div class="model-bg"style="margin-left: -25%;" *ngIf="showMembreForm">
+  <a class="close-button" (click)="onClickCloseFormtechniciens()">X</a>
+  <!-- <a class="close-button" (click)="onClickCloseFormtechniciens()">X</a>
+  <div class="edit">
+ 
+    <form >
+      
+      <div class="form-group">
+   <label for="membres">Membres </label>
+  
+   <tr  *ngFor="let technicien of listtechniciens; let i = index" >
+    <td>{{technicien.name}} email: {{technicien.email}}  </td>
+ 
+    </tr>
+ </div>
+</form>
+
+
+
+  </div> -->
+
+  <div class="edit" style="margin-top: -5%;">
+    
+    <!-- create form -->
+    <!-- <form >
+      <h3>Ticket info</h3>
+     
+      <div>
+        
+        <h4 style="text-align: center;">{{currentticket.description}}</h4>
+       
+      <h5 style="text-align: center;">Etat:{{currentticket.etat}}</h5>
+    
+      <h5 style="text-align: center;">Demandeur:{{user.name}}</h5>
+      <h5 style="text-align: center;">technicien:{{technicienaffecte.name}}</h5>
+      <h5 style="text-align: center;">solution :{{currentticket.note}}</h5>
+      <button class="btn btn-success add-btn" style="width: 25%;"  (click)="onDeleteTiket(currentticket._id)" >Supprimer</button> 
+</div>
+
+
+    </form> -->
+    <div id="generic_price_table" style="margin-top: 0%;">   
+      <section>
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-22">
+                          <!--PRICE HEADING START-->
+                          <!-- <div class="price-heading clearfix">
+                              <h3>Ticket info</h3>
+                          </div> -->
+                          <!--//PRICE HEADING END-->
+                      </div>
+                  </div>
+              </div>
+              <div class="container">
+                  
+                  <!--BLOCK ROW START-->
+                  <div class="row">
+                      <div class="col-md-12">
+                      
+                        <!--PRICE CONTENT START-->
+                          <div class="generic_content clearfix">
+                              
+                              <!--HEAD PRICE DETAIL START-->
+                              <div class="generic_head_price clearfix">
+                              
+                                  <!--HEAD CONTENT START-->
+                                  <div class="generic_head_content clearfix">
+                                  
+                                    <!--HEAD START-->
+                                      <div class="head_bg"></div>
+                                      <div class="head">
+                                          <span>Membres</span>
+                                      </div>
+                                      <!--//HEAD END-->
+                                      
+                                  </div>
+                                  <!--//HEAD CONTENT END-->
+                                  
+                                  <!--PRICE START-->
+                                  <div class="generic_price_tag clearfix">	
+                                      <span class="price">
+                                          <span ></span>
+                                          <button style="background-color: rgba(39,154,189,255);width: 25%;margin-left: 60%;" type="button" class="btn btn-primary" (click)="onClickShowFormalltechniciens()">Ajouter</button>
+                                          <!-- <span class="currency">99</span> -->
+                                          <!-- <span class="cent">{{currentticket.description}}</span> -->
+                                          <!-- <span class="month">/MON</span> -->
+                                      </span>
+                                  </div>
+                                  <!--//PRICE END-->
+                                  
+                              </div>                            
+                              <!--//HEAD PRICE DETAIL END-->
+                              
+                              <!--FEATURE LIST START-->
+                              <div class="generic_feature_list">
+                                <ul>
+                                    
+                                    
+                                      <li  *ngFor="let technicien of listtechniciens.membre_groupe; let i = index" >
+                                        
+                                        <span>{{technicien.name}}  :  </span>
+                                         <img src="../../../assets/images/icons8-email-64.png"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe me-2 icon-inline">{{technicien.email}}
+                                       
+                                         <a type="button" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close" (click)="onClickDeleteMembre(listtechniciens._id,technicien._id)"> <i class="fa fa-remove h5 m-0"></i></a>
+                                        </li>
+                                      <!-- <li><span>technicien:</span> {{technicienaffecte.name}}</li> -->
+                                      <!-- <li><span>Solution:</span> {{currentticket.note}}</li> -->
+                                      
+                                  </ul>
+                              </div>
+                              <!--//FEATURE LIST END-->
+                              
+                              <!--BUTTON START-->
+                              <!-- <div class="generic_price_btn clearfix">
+                                <button (click)="onDeleteTiket(currentticket._id)">supprimer</button>
+                               
+                              </div> -->
+                              <!--//BUTTON END-->
+                              
+                          </div>
+                          <!--//PRICE CONTENT END-->
+                              
+                      </div>
+                
+                    
+                  </div>	
+                  <!--//BLOCK ROW END-->
+                  
+              </div>
+          </section>             
+        <!-- <footer>
+            <a class="bottom_btn" href="#">&copy; MrSahar</a>
+          </footer> -->
+      </div>
+  </div>
+
+
+</div>
+
+
+
+</div>
+        </div>
+        </div>
+        </main>
+</div>
+
+  
+<div class="model-bg"  *ngIf="showUserDetails" >
+
+    
+  <a class="close-button" (click)="onClickCloseForm2()">X</a>
+  <div class="edit">
+ 
+    <form >
+      <h3 style="text-align: center;">Utilisateur info</h3>
+      <br>
+      <!-- <img src="./../../../../assets/images/{{currentuser.user_img}}"  style="border-radius: 60%;margin-left: 43%;" width="50" height="50">
+      <div>
+        <h4 style="text-align: center;">{{currentuser.name}}</h4>
+   
+      <h5 style="text-align: center;">{{currentuser.type}}</h5>
+      <h5 style="text-align: center;">{{currentuser.email}}</h5>
+
+     
+    </div>
+    <button class="btn btn-success add-btn" style="width: 25%;" (click)="onClickShowForm3()">Modifier</button> 
+    <button class="btn btn-success add-btn" style="width: 25%;"  (click)="onDeleteUser(currentuser._id)" >Supprimer</button> 
+ -->
+
+    </form>
+ 
+
+    <div class="container">
+        <div class="main-body">
+          <div class="row">
+            <div class="col-lg-12"  >
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <br>
+                    
+                    <img src="./../../../../assets/images/{{currentuser.user_img}}" alt="Admin" class="rounded-circle p-1 btn-light" width="110" height="110">
+                    
+                    <div class="mt-3">
+        
+                            <h2>{{currentuser.name}} {{currentuser.prenom}} </h2>
+                            <h3 class="text-secondary mb-1">{{currentuser.poste}}</h3>
+                         
+                            <!-- <p class="text-muted font-size-sm">{{user.password}}</p> -->
+                            <!-- <button class="btn btn-primary">Follow</button>
+                            <button class="btn btn-outline-primary">Message</button> -->
+                          </div>
+                        </div>
+                        <hr class="my-4">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h4 class="mb-0" style="margin-left: 22%;margin-top: -8%;"><img src="../../../assets/images/telephone.png"  width="25" height="24" >  Tel : <span class="text-secondary">{{currentuser.tel}}</span></h4>
+                            
+                           <br>
+                       
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h4 class="mb-0" style="margin-left: 22%;margin-top: 0%;"><img src="../../../assets/images/e-mail.png"  width="25" height="24" >  Email : <span class="text-secondary">{{currentuser.email}}</span></h4>
+                            
+                           <br>
+                            <br>
+                          </li>
+                      
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                         
+                            <h4 class="mb-0" style="margin-left: 22%;margin-top: 0%;"><img src="../../../assets/images/networking.png"  width="25" height="24" >  Département : <span class="text-secondary">{{currentuser.user_departement[0].name}}</span></h4>
+                           
+                            <br>
+                            <br>
+                          </li>
+                          
+                          
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+           
+            <!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter me-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
+              <span class="text-secondary">@bootdey</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram me-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>
+              <span class="text-secondary">bootdey</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook me-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
+              <span class="text-secondary">bootdey</span>
+            </li> -->
+          </ul>
+          <br>
+        </div>
+      </div>
+    </div>
+
+</div> </div></div>
+  </div>
+  </div>
+
+
+  <div class="model-bg"  *ngIf="showalltechniciens" >
+
+    
+    <a class="close-button" (click)="onClickcloseFormalltechniciens()">X</a>
+    <!-- <a class="close-button" (click)="onClickCloseFormtechniciens()">X</a>
+  <div class="edit">
+ 
+    <form >
+      
+      <div class="form-group">
+   <label for="membres">Membres </label>
+  
+   <tr  *ngFor="let technicien of listtechniciens; let i = index" >
+    <td>{{technicien.name}} email: {{technicien.email}}  </td>
+ 
+    </tr>
+ </div>
+</form>
+
+
+
+  </div> -->
+
+  <div class="edit" style="margin-top: -5%;">
+    
+    <!-- create form -->
+    <!-- <form >
+      <h3>Ticket info</h3>
+     
+      <div>
+        
+        <h4 style="text-align: center;">{{currentticket.description}}</h4>
+       
+      <h5 style="text-align: center;">Etat:{{currentticket.etat}}</h5>
+    
+      <h5 style="text-align: center;">Demandeur:{{user.name}}</h5>
+      <h5 style="text-align: center;">technicien:{{technicienaffecte.name}}</h5>
+      <h5 style="text-align: center;">solution :{{currentticket.note}}</h5>
+      <button class="btn btn-success add-btn" style="width: 25%;"  (click)="onDeleteTiket(currentticket._id)" >Supprimer</button> 
+</div>
+
+
+    </form> -->
+    <div id="generic_price_table" style="margin-top: 0%;">   
+      <section>
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-22">
+                          <!--PRICE HEADING START-->
+                          <!-- <div class="price-heading clearfix">
+                              <h3>Ticket info</h3>
+                          </div> -->
+                          <!--//PRICE HEADING END-->
+                      </div>
+                  </div>
+              </div>
+              <div class="container">
+                  
+                  <!--BLOCK ROW START-->
+                  <div class="row">
+                      <div class="col-md-12">
+                      
+                        <!--PRICE CONTENT START-->
+                          <div class="generic_content clearfix">
+                              
+                              <!--HEAD PRICE DETAIL START-->
+                              <div class="generic_head_price clearfix">
+                              
+                                  <!--HEAD CONTENT START-->
+                                  <div class="generic_head_content clearfix">
+                                  
+                                    <!--HEAD START-->
+                                      <div class="head_bg"></div>
+                                      <div class="head">
+                                          <span>techniciens</span>
+                                      </div>
+                                      <!--//HEAD END-->
+                                      
+                                  </div>
+                                  <!--//HEAD CONTENT END-->
+                                  
+                                  <!--PRICE START-->
+                                  <div class="generic_price_tag clearfix">	
+                                      <span class="price">
+                                          <span ></span>
+                                   
+                                          <!-- <span class="currency">99</span> -->
+                                          <!-- <span class="cent">{{currentticket.description}}</span> -->
+                                          <!-- <span class="month">/MON</span> -->
+                                      </span>
+                                  </div>
+                                  <!--//PRICE END-->
+                                  
+                              </div>                            
+                              <!--//HEAD PRICE DETAIL END-->
+                              
+                              <!--FEATURE LIST START-->
+                              <div class="generic_feature_list">
+                                <ul>
+                                    <li> 
+                                        <form [formGroup]="formaffecterplusieurtech" (ngSubmit)="submitForm()">      
+                                            <fieldset>      
+                                                <legend>affecter techniciens</legend>      
+                                                <div   *ngFor="let technicien of fetchedalltechniciens; let i = index">
+                                                    <input type="checkbox" [value]="technicien._id" (change)="onCheckboxChange($event)" />{{technicien.name}}
+                                                <!-- <input  type="checkbox"  (change)="onCheckboxChange($event)"  id="tech" formControlName="tech" name="tech" value="{{technicien._id}}">{{technicien.name}}<br>       -->
+                                            </div>
+                                                <br>      
+                                                <button style="background-color: rgba(39,154,189,255);width: 25%;margin-left: 60%;" type="submit" class="btn btn-primary" >Ajouter</button>     
+                                            </fieldset>      
+                                        </form>
+
+
+                                    </li>
+                                    
+                                      <!-- <li  *ngFor="let technicien of fetchedalltechniciens; let i = index" >
+                                        
+                                        <span>{{technicien.name}}  :  </span>
+                                         <img src="../../../assets/images/icons8-email-64.png"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe me-2 icon-inline">{{technicien.email}}
+                                       
+                                         <a type="button" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close" (click)="onClickDeleteMembre(listtechniciens._id,technicien._id)"> <i class="fa fa-remove h5 m-0"></i></a>
+                                        </li> -->
+                                      <!-- <li><span>technicien:</span> {{technicienaffecte.name}}</li> -->
+                                      <!-- <li><span>Solution:</span> {{currentticket.note}}</li> -->
+                                      
+                                  </ul>
+                              </div>
+                              <!--//FEATURE LIST END-->
+                              
+                              <!--BUTTON START-->
+                              <!-- <div class="generic_price_btn clearfix">
+                                <button (click)="onDeleteTiket(currentticket._id)">supprimer</button>
+                               
+                              </div> -->
+                              <!--//BUTTON END-->
+                              
+                          </div>
+                          <!--//PRICE CONTENT END-->
+                              
+                      </div>
+                
+                    
+                  </div>	
+                  <!--//BLOCK ROW END-->
+                  
+              </div>
+          </section>     .
+     
+        <!-- <footer>
+            <a class="bottom_btn" href="#">&copy; MrSahar</a>
+          </footer> -->
+      </div>
+  </div>
+
+
+</div>
+
+
+

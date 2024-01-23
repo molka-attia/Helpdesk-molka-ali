@@ -1,0 +1,112 @@
+<flash-messages class="flashfade"></flash-messages>
+ <body>
+  <div class="container">
+      <input type="checkbox" id="flip">
+      <div class="cover">
+        <div class="front">
+          <img src="../assets/images/quest-ce-qu-un-helpdesk-FR-Capterra-Header.png" alt="">
+          <div class="text" style="margin-top: 50%;margin-left: 25%;" >
+            <span class="text-1">Helpdesk <br> </span>
+            <!-- <span class="text-2">Restons connectés</span> -->
+          </div>
+        </div>
+        <div class="back">
+          <img class="backImg" src="../assets/images/quest-ce-qu-un-helpdesk-FR-Capterra-Header.png" alt="">
+          <div class="text">
+            <span class="text-1">Complete miles of journey <br> with one step</span>
+            <span class="text-2">Let's get started</span>
+          </div>
+        </div>
+      </div>
+      <div class="forms">
+          <div class="form-content">
+            <div class="login-form">
+              <!-- <div class="title" >Login</div> -->
+              <h1 style="text-align: center;font-weight: bold;">Connexion</h1>
+            <form (ngSubmit)="onSigninSubmit()" [formGroup]="formLogin">
+              <div class="input-boxes">
+                <div class="input-box">
+                  <!-- <i class="fa fa-envelope"></i> -->
+               
+                  <!-- <input type="text" class="form-control form-control-lg " placeholder="Enter your email" required> -->
+                  <input type="email" placeholder="Email" class="form-control form-control-lg " formControlName="email" />
+      <span class="warning" *ngIf="formLogin.get('email').invalid && formLogin.get('email').touched">Veuillez entrer une adresse email valide</span>
+                </div>
+                <div class="input-box">
+                  <!-- <i class="fa fa-lock"></i> -->
+                  
+                  <!-- <input type="password" style="margin-top: 9%;" placeholder="Enter your password" required> -->
+                  <input type="password" placeholder="mot de passe" formControlName="password" name="password"  />
+                  <!-- <div class="warning"
+                    *ngIf="formLogin.get('password').invalid && formLogin.get('password').touched">Password must be 8
+                    caractere</div> -->
+                </div>
+                <!-- <div class="text" style="margin-left: 65%;color: gray;margin-top: 9%;"><a href="#">Forgot password?</a></div> -->
+                <div class="button input-box">
+                  <input type="submit" value="SIGN IN"  value="Envoyer" [disabled]="!formLogin.valid">
+                  <!-- <button type="submit" [disabled]="!formLogin.valid">Sign In</button> -->
+                </div>
+                <div class="text sign-up-text">vous n'avez pas de compte? <label for="flip">s'inscrire</label></div>
+              </div>
+          </form>
+        </div>
+      
+          <div class="signup-form">
+            
+            <h1 style="text-align: center;">Inscription</h1>
+          <form (submit)="onSignUpSubmit()" [formGroup]="formSignUp">
+          
+              <div class="input-boxes">
+                <div class="input-box">
+                  <!-- <i class="fa fa-user"></i> -->
+                  <input style="width: 45%; " type="text" placeholder=" nom" formControlName="name"required>
+                  <input type="text"  style="width: 50%;margin-left: 3%;"placeholder=" prènom" formControlName="prenom"required>
+                </div>
+                <div class="input-box">
+                  <!-- <i class="fa fa-envelope"></i> -->
+                  <input type="email" placeholder="Email" formControlName="email"  required>
+                  <span class="warning" *ngIf="formSignUp.get('email').invalid && formSignUp.get('email').touched">Veuillez entrer une adresse email valide</span>
+                </div>
+                
+                <div class="input-box">
+                  <!-- <i class="fa fa-lock"></i> -->
+                  <input type="password" placeholder="mot de passe"name="password" formControlName="password"/>
+      <span class="warning"
+      *ngIf="formSignUp.get('password').invalid && formSignUp.get('password').touched">Mot de passe doit contenir au moins 8 caractère</span>
+                </div>
+                <div class="input-box">
+                  <!-- <i class="fa fa-lock"></i> -->
+                  <input type="tel" placeholder="tel" name="tel" formControlName="tel"/>
+ 
+                </div>
+                
+                <div class="input-box">
+                  <!-- <i class="fa fa-user"></i> -->
+                  <select class="form-control" style="width: 45%;" id="type" formControlName="departement_id" name="departement_id">
+                    <option *ngFor="let department of fetchedDepatments; let i = index" value="{{department._id}}" >{{department.name}}</option>
+              
+                  </select>
+                  <input type="text"  style="width: 50%;margin-left: 3%;"placeholder="poste" formControlName="poste"required>
+                </div>
+                <div class="form-group">
+                  <!-- <label for="event_img">User Image</label> -->
+                  <input type="file" #filePicker (change)="onImagePicked($event)" class="form-control" id="userimage" placeholder="Enter user image">
+                </div>
+             
+                <div class="button input-box">
+                  <input type="submit" >
+                </div>
+                <div class="text sign-up-text">vous avez deja un compte? <label for="flip">Connecter Maintenant</label></div>
+              </div>
+        </form>
+      </div>
+      </div>
+      </div>
+    </div>
+  </body>
+  
+  
+  
+  
+  
+  

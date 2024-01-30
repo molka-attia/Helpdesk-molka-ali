@@ -1,0 +1,510 @@
+[{
+  "_id": {
+    "$oid": "62321fd9efbf38336719f83a"
+  },
+  "name": "attia",
+  "email": "molkaattia3@gmail.com",
+  "password": "$2b$10$QAz94XcPzGVq2V3TKDhBrelf7clSed.ohs.3a4h.sxcApFPE0Pypi",
+  "type": "admin",
+  "user_img": "1655129307200-photo5.jpg",
+  "__v": 0,
+  "departement_id": "629ba0880a1c7a58482b8189",
+  "poste": "Directeur",
+  "prenom": "molka",
+  "tel": "58328654"
+},
+{
+  "_id": {
+    "$oid": "6234bb5ef5812ccacd2ac4b8"
+  },
+  "name": "Ben amar",
+  "email": "Benamar@gmail.com",
+  "password": "$2b$10$1Nk.lhD.YRiS7MJxsokxB.3mNJvE8YbjkgEBkk/aSZynYGEroGiL2",
+  "type": "utilisateur",
+  "__v": 0,
+  "user_img": "1654366879985-photo4.jpg",
+  "departement_id": "629ba0880a1c7a58482b8189",
+  "poste": "employe",
+  "prenom": "chiheb",
+  "tel": "25987413"
+},
+{
+  "_id": {
+    "$oid": "627e9bff61889b3ba4246837"
+  },
+  "name": "Bayram",
+  "prenom": "anis",
+  "tel": "59654321",
+  "poste": "employe",
+  "email": "Bayram@gmail.com",
+  "password": "$2b$10$DC0U8Y.qi3tFrFWWFZqvIu38PbD0MH6rj/8AXV5QDnBJanm.hUhpa",
+  "type": "technicien",
+  "user_img": "1654368131221-photo6.jpg",
+  "departement_id": "629ba0880a1c7a58482b8189",
+  "groupe_id": [
+    "null",
+    {
+      "_id": {
+        "$oid": "628a2a949772b06585a09577"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a1f3d6e5487c61d7ff99a2"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a1f4c7e5487c61d7ff99d1"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a7460064e60f51b24f5615"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a79aa7653eb854b83eff44"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62752ffca43ec83d55634326"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62752ffca43ec83d55634326"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a86508b09e5d05b19d1b15"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "628223a04f6cdd98cde283da"
+  },
+  "name": "Attia",
+  "prenom": "Molka",
+  "tel": "25987413",
+  "poste": "employe",
+  "email": "pfemolka@gmail.com",
+  "password": "$2b$10$E7k48P8B.JPOv/zctaB4muAd.AGG19XevUgVvPU6zfZuHtfNINFMK",
+  "type": "technicien",
+  "user_img": "1655150649323-photo5.jpg",
+  "departement_id": "629ba0720a1c7a58482b8187",
+  "groupe_id": [
+    "62516ba5c9d62029eae52493",
+    {
+      "_id": {
+        "$oid": "62752ffca43ec83d55634326"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a1f3d6e5487c61d7ff99a2"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a1f4c7e5487c61d7ff99d1"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62752ffca43ec83d55634326"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62752ffca43ec83d55634326"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a7460064e60f51b24f5615"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62752ffca43ec83d55634326"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a79aa7653eb854b83eff44"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a86508b09e5d05b19d1b15"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62951848ba009d8f6659a3b9"
+  },
+  "name": "Bouhageb",
+  "prenom": "slim",
+  "tel": "25652321",
+  "poste": "employe",
+  "email": "Bouhageb@gmail.com",
+  "password": "$2b$10$KFyHTiGFBfrUi93x.Y8Ls.E4fy.C2hXmcx1JJ8pz43NP6OYSKxiU2",
+  "type": "technicien",
+  "user_img": "1654367051117-photo1.jpg",
+  "departement_id": "629ba0720a1c7a58482b8187",
+  "groupe_id": [
+    "62752ffca43ec83d55634326",
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a1f3d6e5487c61d7ff99a2"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a1f4c7e5487c61d7ff99d1"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a7460064e60f51b24f5615"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a79aa7653eb854b83eff44"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62752ffca43ec83d55634326"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62752ffca43ec83d55634326"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62a86508b09e5d05b19d1b15"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62979c7deb156850e19c6ec8"
+  },
+  "name": "Ben ayed",
+  "prenom": "Imene",
+  "tel": "25987413",
+  "poste": "employe",
+  "email": "benayed@gmail.com",
+  "password": "$2b$10$HfLsEhbD4CFkJljAdFI8PO0an5NDJHTCbtk5TUm8WXdqVv1RipB6O",
+  "type": "utilisateur",
+  "user_img": "1655133568578-photo2.jpg",
+  "departement_id": "629ba0720a1c7a58482b8187",
+  "groupe_id": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62a739fa64e60f51b24f5449"
+  },
+  "name": "maher",
+  "prenom": "ahmed",
+  "tel": "25987413",
+  "poste": "employe",
+  "email": "Attiahosn@gmail.com",
+  "password": "$2b$10$XLRBXNFlCdGkDVAnhB1GMuLZuBMArIeWkhw1AVwAHh03XMoW5Eona",
+  "type": "technicien",
+  "user_img": "1655151165848-photo4.jpg",
+  "departement_id": "629ba0720a1c7a58482b8187",
+  "groupe_id": [
+    {
+      "_id": {
+        "$oid": "62a7460064e60f51b24f5615"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62516ba5c9d62029eae52493"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b7f49c8f5e3d37002d178f"
+  },
+  "name": "Khila",
+  "prenom": "Ali",
+  "tel": "21478523",
+  "poste": "Technicien",
+  "email": "alikhila80@gmail.com",
+  "password": "$2b$10$4UPhcrD9/mE1l8Tc20IzF.2ZjqX4l1XgLhH7MtLRzCokXastQWO8W",
+  "type": "technicien",
+  "user_img": "1706554524553-moi.jpg",
+  "departement_id": "65b7f218201aff641a9b5bb1",
+  "groupe_id": [
+    {
+      "_id": {
+        "$oid": "65b7f47e8f5e3d37002d1780"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b7f4e58f5e3d37002d17a4"
+  },
+  "name": "Sedghiani",
+  "prenom": "Khalil",
+  "tel": "21478523",
+  "poste": "employe",
+  "email": "alikhila519@gmail.com",
+  "password": "$2b$10$WTM6dGnADEvUTB/pSV4EWeeTyEIQBzowXZTC9mffXcLOmIfHW7luW",
+  "type": "utilisateur",
+  "user_img": "1706554597096-user.jpg",
+  "departement_id": "629ba0720a1c7a58482b8187",
+  "groupe_id": [],
+  "__v": 0
+}]

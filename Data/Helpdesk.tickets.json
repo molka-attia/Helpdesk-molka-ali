@@ -1,0 +1,82 @@
+[{
+  "_id": {
+    "$oid": "65b778983241819dcf5d1731"
+  },
+  "description": "Problème  connexion",
+  "priorite": "Urgent",
+  "demandeur": "62321fd9efbf38336719f83a",
+  "assignetech": "62951848ba009d8f6659a3b9",
+  "etat": "en cours de traitement",
+  "specialite": "62516ba5c9d62029eae52493",
+  "Datecreaation": {
+    "$date": "2024-01-29T10:06:16.576Z"
+  },
+  "Datecloturation": null,
+  "Dateaffectation": {
+    "$date": "2024-01-29T18:24:42.514Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b779273241819dcf5d1748"
+  },
+  "description": "Défaillance du système de gestion",
+  "priorite": "Moyenne",
+  "demandeur": "62321fd9efbf38336719f83a",
+  "assignetech": "628223a04f6cdd98cde283da",
+  "etat": "non cloturer",
+  "specialite": "62752ffca43ec83d55634326",
+  "Datecreaation": {
+    "$date": "2024-01-29T10:08:39.868Z"
+  },
+  "Datecloturation": null,
+  "Dateaffectation": {
+    "$date": "2024-01-29T10:08:39.868Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b779a53241819dcf5d1774"
+  },
+  "description": "Connexion faible",
+  "priorite": "Faible",
+  "demandeur": "62321fd9efbf38336719f83a",
+  "assignetech": "62951848ba009d8f6659a3b9",
+  "etat": "cloturer",
+  "specialite": "62516ba5c9d62029eae52493",
+  "Datecreaation": {
+    "$date": "2024-01-29T10:10:45.563Z"
+  },
+  "Datecloturation": {
+    "$date": "2024-01-29T10:11:28.788Z"
+  },
+  "Dateaffectation": {
+    "$date": "2024-01-29T10:10:45.563Z"
+  },
+  "__v": 0,
+  "note": "Paramétrage du modem"
+},
+{
+  "_id": {
+    "$oid": "65b7f50e8f5e3d37002d17b6"
+  },
+  "description": "Mon pc ne s'allume pas",
+  "priorite": "Urgent",
+  "demandeur": "65b7f4e58f5e3d37002d17a4",
+  "assignetech": "65b7f49c8f5e3d37002d178f",
+  "etat": "cloturer",
+  "specialite": "65b7f47e8f5e3d37002d1780",
+  "Datecreaation": {
+    "$date": "2024-01-29T18:57:18.651Z"
+  },
+  "Datecloturation": {
+    "$date": "2024-01-29T18:58:53.065Z"
+  },
+  "Dateaffectation": {
+    "$date": "2024-01-29T18:57:18.651Z"
+  },
+  "__v": 0,
+  "note": "Changement de batterie"
+}]

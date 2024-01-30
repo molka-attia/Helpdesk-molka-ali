@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "62516ba5c9d62029eae52493"
+  },
+  "specialite": "Réseau",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62752ffca43ec83d55634326"
+  },
+  "specialite": "Software",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b7f47e8f5e3d37002d1780"
+  },
+  "specialite": "Hardware",
+  "__v": 0
+}]

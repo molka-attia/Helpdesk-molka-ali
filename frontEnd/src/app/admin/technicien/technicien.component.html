@@ -1,48 +1,48 @@
 <app-admin></app-admin>
 <div class="content">
-    
+
 
     <main>
-    
+
 
         <div class="stock">
             <div class="case">
-              <div class="header-case">
-                <h2>Liste des techniciens  </h2>
-                <button style="background-color: #c7ca07;width:10% ;" type="button" class="btn btn-primary"  (click)="onClickShowForm()">Ajouter</button>
-              </div>
-              <div *ngFor="let user of fetchedUser; let i = index">
-                
-                
-              <div class="body-case">
-                <div class="all-users">
-                  <div class="infos">
-                   
-                  <img src="./../../../../assets/images/{{user?.user_img}}" width="60" height="60">
-                  <span class="logged-out" style="margin-left: -15% ;margin-top: 22%;font-size: large;" *ngIf="user.numberOftickets !=0">●</span>  
-                  <span class="logged-in" style="margin-left: -15% ;margin-top: 22%;font-size: large;" *ngIf="user.numberOftickets ==0">●</span>    
-                  <!-- <div  *ngIf="user.numberOftickets ==0"></div>
+                <div class="header-case">
+                    <h2>Liste des techniciens </h2>
+                    <button style="background-color: #c7ca07;width:10% ;" type="button" class="btn btn-primary" (click)="onClickShowForm()">Ajouter</button>
+                </div>
+                <div *ngFor="let user of fetchedUser; let i = index">
+
+
+                    <div class="body-case">
+                        <div class="all-users">
+                            <div class="infos">
+
+                                <img src="./../../../../assets/images/{{user?.user_img}}" width="60" height="60">
+                                <span class="logged-out" style="margin-left: -15% ;margin-top: 22%;font-size: large;" *ngIf="user.numberOftickets !=0">●</span>
+                                <span class="logged-in" style="margin-left: -15% ;margin-top: 22%;font-size: large;" *ngIf="user.numberOftickets ==0">●</span>
+                                <!-- <div  *ngIf="user.numberOftickets ==0"></div>
                   <div  *ngIf="user.numberOftickets !=0"></div> -->
-                    <div style="margin-left: 15%;">
-                    <h2 style="font-weight: 500;">{{user.name}} {{user.prenom}}  
-                     </h2>
-                   
-                     <div *ngFor="let one of user.technicien_groupe; let i = index"> 
-                    <h4 style="margin-top: -15%;">{{one.specialite}}</h4>
-                    </div> 
-                 
-                  </div>
-        
-                  </div>
-                  
-                <!-- <div class="user-contact">
+                                <div style="margin-left: 15%;">
+                                    <h2 style="font-weight: 500;">{{user.name}} {{user.prenom}}
+                                    </h2>
+
+                                    <div *ngFor="let one of user.technicien_groupe; let i = index">
+                                        <h4 style="margin-top: -15%;">{{one.specialite}}</h4>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- <div class="user-contact">
                   <span class="fa fa-facebook"></span>
                   <span class="fa fa-whatsapp"></span>
                   <span class="fa fa-phone"></span>
                 </div> -->
-                <div>
-                    <!-- <button class="btn" >voir plus</button> -->
-                    <button class="btn btn-secondary btn-lg active" style="width: 100%;   background: linear-gradient( #3bbbb4 15%, #2596be 100%);
+                            <div>
+                                <!-- <button class="btn" >voir plus</button> -->
+                                <button class="btn btn-secondary btn-lg active" style="width: 100%;   background: linear-gradient( #3bbbb4 15%, #2596be 100%);
                     border-radius: 10px;
                     color: #fff;
                     font-size: .8rem;
@@ -50,92 +50,92 @@
                     border: none;
                     margin-left: 5px;
                     cursor: pointer;
-                    margin-bottom: 1rem;" (click)="onClickShowForm2(user)">voir details</button> 
+                    margin-bottom: 1rem;" (click)="onClickShowForm2(user)">voir details</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-              </div>
             </div>
-          </div>
-          
-  </div>
-      
+
+        </div>
 
 
 
-     
-    
-   
+
+
+
+
 
     </main>
-  </div> 
-  
+</div>
 
 
-  <div class="model-bg" *ngIf="showAddUserForm">
+
+<div class="model-bg" *ngIf="showAddUserForm">
 
     <a class="close-button" (click)="onClickCloseForm()">X</a>
     <div class="edit" style="margin-top: -9%;">
-      <!-- create form -->
-      <form [formGroup]="formaddUser" (submit)="onAddSubmit()">
-        
-        <div class="form-group">
-          <label for="name">Nom et Prènom</label>
-          <input type="text" class="form-control" style="width: 47%;" id="name" formControlName="name" placeholder="Entrer nom">
-          <input type="text" class="form-control" style="width: 47%; margin-left: 52%;margin-top: -7%;"  id="prenom" formControlName="prenom" placeholder="Enter Prènom">
-        </div>
-          <div class="form-group">
-            <label for="email">User Email  </label>
-            <input type="text" class="form-control" id="email" formControlName="email" placeholder="Enter user email">
-          </div>
-          <div class="form-group">
-            <label for="tel">Numèro Tel  </label>
-            <input type="tel" class="form-control" id="tel" formControlName="tel" placeholder="Enter num tel">
-          </div>
-          <div class="form-group">
-            <label for="tel">Poste  </label>
-            <input type="text" class="form-control" id="poste" formControlName="poste" placeholder="Enter  poste">
-          </div>
-          <div class="form-group">
-            <label for="password">User password  </label>
-            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter user password">
-          </div>
-          <div class="form-group">
-            <label for="password">Département  </label>
-          
-           <select class="form-control" id="type" formControlName="departement_id" name="departement_id">
+        <!-- create form -->
+        <form [formGroup]="formaddUser" (submit)="onAddSubmit()">
+
+            <div class="form-group">
+                <label for="name">Nom et Prènom</label>
+                <input type="text" class="form-control" style="width: 47%;" id="name" formControlName="name" placeholder="Entrer nom">
+                <input type="text" class="form-control" style="width: 47%; margin-left: 52%;margin-top: -7%;" id="prenom" formControlName="prenom" placeholder="Entrer Prènom">
+            </div>
+            <div class="form-group">
+                <label for="email">User Email  </label>
+                <input type="text" class="form-control" id="email" formControlName="email" placeholder="Entrer user email">
+            </div>
+            <div class="form-group">
+                <label for="tel">Numèro Tel  </label>
+                <input type="tel" class="form-control" id="tel" formControlName="tel" placeholder="Entrer num tel">
+            </div>
+            <div class="form-group">
+                <label for="tel">Poste  </label>
+                <input type="text" class="form-control" id="poste" formControlName="poste" placeholder="Entrer  poste">
+            </div>
+            <div class="form-group">
+                <label for="password">User password  </label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Entrer user password">
+            </div>
+            <div class="form-group">
+                <label for="password">Département  </label>
+
+                <select class="form-control" id="type" formControlName="departement_id" name="departement_id">
             <option *ngFor="let department of fetchedDepatments; let i = index" value="{{department._id}}" >{{department.name}}</option>
       
           </select>
-        </div>
-   <div class="form-group">
-     <!-- <label for="radio">User type : </label> -->
-     <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
-     <!-- <select class="form-control" id="type" formControlName="type" name="type">
+            </div>
+            <div class="form-group">
+                <!-- <label for="radio">User type : </label> -->
+                <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
+                <!-- <select class="form-control" id="type" formControlName="type" name="type">
      <option value="admin">admin</option>
      <option value="technicien">technicien</option>
      <option value="employe">employé</option>
    </select> -->
-   </div>
-   <div class="form-group">
-     <label for="event_img">User Image</label>
-     <input type="file" #filePicker (change)="onImagePicked($event)" class="form-control" id="userimage" placeholder="Enter user image">
- <div class="image-preview" *ngIf="imagePreview !=='' && imagePreview">
-   <img [src]="imagePreview" alt="">
- </div>
-   </div>
-   <div class="form-group">
-    <label for="radio">spécialité  </label>
-    <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
-    <select class="form-control" id="groupe_id" formControlName="groupe_id" name="groupe_id">
+            </div>
+            <div class="form-group">
+                <label for="event_img">User Image</label>
+                <input type="file" #filePicker (change)="onImagePicked($event)" class="form-control" id="userimage" placeholder="Entrer user image">
+                <div class="image-preview" *ngIf="imagePreview !=='' && imagePreview">
+                    <img [src]="imagePreview" alt="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="radio">spécialité  </label>
+                <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
+                <select class="form-control" id="groupe_id" formControlName="groupe_id" name="groupe_id">
      
     <option *ngFor="let groupe of fetchedgroupes; let i = index" value={{groupe._id}}>{{groupe.specialite}}</option>
     
 
   </select>
-  </div>
+            </div>
 
-  <button type="submit" class="btn btn-primary" style="width: 25%;">Envoyer</button>
- </form>
+            <button type="submit" class="btn btn-primary" style="width: 25%;">Envoyer</button>
+        </form>
     </div>
 
 
@@ -145,44 +145,44 @@
 
 <div class="model-bg" *ngIf="showEditUserForm">
 
-  <a class="close-button" (click)="onClickCloseForm3()">X</a>
-  <div class="edit" style="margin-top: -6%;">
-    <!-- create form -->
-    <form [formGroup]="formEdit" (submit)="oneEditSubmit(currentuser._id)">
-      <div class="form-group">
-        <label for="name">Nom et Prènom</label>
-        <input type="text" class="form-control" style="width: 47%;" id="name" formControlName="name" placeholder="Entrer nom">
-        <input type="text" class="form-control" style="width: 47%; margin-left: 52%;margin-top: -7%;"  id="prenom" formControlName="prenom" placeholder="Enter Prènom">
-      </div>
-        <div class="form-group">
-          <label for="email"> Email  </label>
-          <input type="text" class="form-control" id="email" formControlName="email" placeholder="Enter user email">
-        </div>
-        <div class="form-group">
-          <label for="tel">Numèro tel </label>
-          <input type="tel" class="form-control" id="tel" formControlName="tel" placeholder="Enter num tel">
-        </div>
-        <div class="form-group">
-          <label for="tel">poste  </label>
-          <input type="text" class="form-control" id="poste" formControlName="poste" placeholder="Enter  poste">
-        </div>
-        <div class="form-group">
-          <label for="password">Mot de passe</label>
-          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter user password">
-        </div>
-        <div class="form-group">
-          <label for="password">Département  </label>
-        
-         <select class="form-control" id="type" formControlName="departement_id" name="departement_id">
+    <a class="close-button" (click)="onClickCloseForm3()">X</a>
+    <div class="edit" style="margin-top: -6%;">
+        <!-- create form -->
+        <form [formGroup]="formEdit" (submit)="oneEditSubmit(currentuser._id)">
+            <div class="form-group">
+                <label for="name">Nom et Prènom</label>
+                <input type="text" class="form-control" style="width: 47%;" id="name" formControlName="name" placeholder="Entrer nom">
+                <input type="text" class="form-control" style="width: 47%; margin-left: 52%;margin-top: -7%;" id="prenom" formControlName="prenom" placeholder="Entrer Prènom">
+            </div>
+            <div class="form-group">
+                <label for="email"> Email  </label>
+                <input type="text" class="form-control" id="email" formControlName="email" placeholder="Entrer user email">
+            </div>
+            <div class="form-group">
+                <label for="tel">Numèro tel </label>
+                <input type="tel" class="form-control" id="tel" formControlName="tel" placeholder="Entrer num tel">
+            </div>
+            <div class="form-group">
+                <label for="tel">poste  </label>
+                <input type="text" class="form-control" id="poste" formControlName="poste" placeholder="Entrer  poste">
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Entrer user password">
+            </div>
+            <div class="form-group">
+                <label for="password">Département  </label>
+
+                <select class="form-control" id="type" formControlName="departement_id" name="departement_id">
           <option *ngFor="let department of fetchedDepatments; let i = index" value="{{department._id}}" >{{department.name}}</option>
     
         </select>
-      </div>
-        <!-- <div class="form-group">
+            </div>
+            <!-- <div class="form-group">
           <label for="password">User password : </label>
-          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter user password">
+          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Entrer user password">
         </div> -->
-        <!-- <div class="form-group">
+            <!-- <div class="form-group">
           <label for="radio">User type : </label>
          
           <select class="form-control" id="type" formControlName="type" name="type">
@@ -190,57 +190,57 @@
           <option value="technicien">technicien</option>
         </select>
         </div> -->
-        <div class="form-group">
-          <label for="event_img">User Image</label>
-          <input type="file" #filePicker (change)="onImagePicked2($event)" class="form-control" id="userimage" placeholder="Enter user image">
-          <div class="image-preview" *ngIf="imagePreview !=='' && imagePreview">
-            <img [src]="imagePreview" alt="">
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 25%;">Envoyer</button>
-  </form>
+            <div class="form-group">
+                <label for="event_img">User Image</label>
+                <input type="file" #filePicker (change)="onImagePicked2($event)" class="form-control" id="userimage" placeholder="Entrer user image">
+                <div class="image-preview" *ngIf="imagePreview !=='' && imagePreview">
+                    <img [src]="imagePreview" alt="">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 25%;">Envoyer</button>
+        </form>
 
-  </div>
+    </div>
 
 
 </div>
 
 
 <div class="model-bg" *ngIf="showTechnicienaffecter">
-<a class="close-button" (click)="onClickCloseForm4()">X</a>
-<div class="edit">
-  <!-- create form -->
-  <form [formGroup]="formAffecter" (ngSubmit)="submitForm()">
-    
-      <div class="form-group">
-        <label for="radio" style="font-weight: bold ;text-align: center;">Spécialité </label>
-        <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
-        <!-- <select class="form-control" id="groupe_id" formControlName="groupe_id" name="groupe_id">
+    <a class="close-button" (click)="onClickCloseForm4()">X</a>
+    <div class="edit">
+        <!-- create form -->
+        <form [formGroup]="formAffecter" (ngSubmit)="submitForm()">
+
+            <div class="form-group">
+                <label for="radio" style="font-weight: bold ;text-align: center;">Spécialité </label>
+                <!-- <input type="text" class="form-control" id="type" formControlName="type" placeholder="Enter user type"> -->
+                <!-- <select class="form-control" id="groupe_id" formControlName="groupe_id" name="groupe_id">
      
           <option *ngFor="let groupe of fetchedgroupes; let i = index" value={{groupe._id}}>{{groupe.specialite}}</option>
           
       
         </select> -->
-        <div   *ngFor="let groupe of fetchedgroupes; let i = index">
-          
-     
-          <label class="containerch">{{groupe.specialite}}
+                <div *ngFor="let groupe of fetchedgroupes; let i = index">
+
+
+                    <label class="containerch">{{groupe.specialite}}
             <input type="checkbox"  class="containerch" [value]="groupe._id" (change)="onCheckboxChange($event)" />
             <span class="checkmark"></span>
           </label>
-     
-     
-     
-     
-     
-          <!-- <input  type="checkbox"  (change)="onCheckboxChange($event)"  id="tech" formControlName="tech" name="tech" value="{{technicien._id}}">{{technicien.name}}<br>       -->
-  </div>
-      </div>
-      
-      <button type="submit" class="btn btn-primary" style="width: 25%;">Envoyer</button>
-</form>
 
-</div>
+
+
+
+
+                    <!-- <input  type="checkbox"  (change)="onCheckboxChange($event)"  id="tech" formControlName="tech" name="tech" value="{{technicien._id}}">{{technicien.name}}<br>       -->
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 25%;">Envoyer</button>
+        </form>
+
+    </div>
 </div>
 <!-- <div class="model-bg"  *ngIf="showUserDetails">
               
@@ -268,16 +268,16 @@
 
 
 </div> -->
-<div class="model-bg"  *ngIf="showUserDetails">
+<div class="model-bg" *ngIf="showUserDetails">
 
-    
-  <a class="close-button" (click)="onClickCloseForm2()">X</a>
-  <div class="edit">
- 
-    <form >
-      <h3 style="text-align: center;">Technicien</h3>
-      <br>
-      <!-- <img src="./../../../../assets/images/{{currentuser.user_img}}"  style="border-radius: 60%;margin-left: 43%;" width="50" height="50">
+
+    <a class="close-button" (click)="onClickCloseForm2()">X</a>
+    <div class="edit">
+
+        <form>
+            <h3 style="text-align: center;">Technicien</h3>
+            <br>
+            <!-- <img src="./../../../../assets/images/{{currentuser.user_img}}"  style="border-radius: 60%;margin-left: 43%;" width="50" height="50">
       <div>
         <h4 style="text-align: center;">{{currentuser.name}}</h4>
    
@@ -290,68 +290,68 @@
     <button class="btn btn-success add-btn" style="width: 25%;"  (click)="onDeleteUser(currentuser._id)" >Supprimer</button> 
  -->
 
-    </form>
- 
+        </form>
 
-<div class="container">
-<div class="main-body">
-  <div class="row">
-    <div class="col-lg-12"  >
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex flex-column align-items-center text-center">
-            <br>
-            
-            <img src="./../../../../assets/images/{{currentuser.user_img}}" alt="Admin" class="rounded-circle p-1 btn-light" width="110" height="110">
-            
-            <div class="mt-3">
 
-                    <h2>{{currentuser.name}} {{currentuser.prenom}} </h2>
-                    <h3 class="text-secondary mb-1">{{currentuser.poste}}</h3>
-                 
-                    <!-- <p class="text-muted font-size-sm">{{user.password}}</p> -->
-                    <!-- <button class="btn btn-primary">Follow</button>
+        <div class="container">
+            <div class="main-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <br>
+
+                                    <img src="./../../../../assets/images/{{currentuser.user_img}}" alt="Admin" class="rounded-circle p-1 btn-light" width="110" height="110">
+
+                                    <div class="mt-3">
+
+                                        <h2>{{currentuser.name}} {{currentuser.prenom}} </h2>
+                                        <h3 class="text-secondary mb-1">{{currentuser.poste}}</h3>
+
+                                        <!-- <p class="text-muted font-size-sm">{{user.password}}</p> -->
+                                        <!-- <button class="btn btn-primary">Follow</button>
                     <button class="btn btn-outline-primary">Message</button> -->
-                  </div>
-                </div>
-                <hr class="my-4">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h4 class="mb-0" style="margin-left: 22%;margin-top: -8%;"><img src="../../../assets/images/telephone.png"  width="25" height="24" >  Tel : <span class="text-secondary">{{currentuser.tel}}</span></h4>
-                    
-                   <br>
-               
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h4 class="mb-0" style="margin-left: 22%;margin-top: 0%;"><img src="../../../assets/images/e-mail.png"  width="25" height="24" >  Email : <span class="text-secondary">{{currentuser.email}}</span></h4>
-                    
-                   <br>
-                    <br>
-                  </li>
-              
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                 
-                    <h4 class="mb-0" style="margin-left: 22%;margin-top: 0%;"><img src="../../../assets/images/networking.png"  width="25" height="24" >  Département : <span class="text-secondary">{{currentuser.user_departement[0].name}}</span></h4>
-                   
-                    <br>
-                    <br>
-                  </li>
-                  
-                  
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-             
-          
-    <!-- <button class="btn btn-light btn-lg" style="width: 50%;margin-left: 23%;"  (click)="onClickShowForm3()">Modifier</button> 
+                                    </div>
+                                </div>
+                                <hr class="my-4">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                        <h4 class="mb-0" style="margin-left: 22%;margin-top: -8%;"><img src="../../../assets/images/telephone.png" width="25" height="24"> Tel : <span class="text-secondary">{{currentuser.tel}}</span></h4>
+
+                                        <br>
+
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                        <h4 class="mb-0" style="margin-left: 22%;margin-top: 0%;"><img src="../../../assets/images/e-mail.png" width="25" height="24"> Email : <span class="text-secondary">{{currentuser.email}}</span></h4>
+
+                                        <br>
+                                        <br>
+                                    </li>
+
+                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+
+                                        <h4 class="mb-0" style="margin-left: 22%;margin-top: 0%;"><img src="../../../assets/images/networking.png" width="25" height="24"> Département : <span class="text-secondary">{{currentuser.user_departement[0].name}}</span></h4>
+
+                                        <br>
+                                        <br>
+                                    </li>
+
+
+                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+
+
+                                        <!-- <button class="btn btn-light btn-lg" style="width: 50%;margin-left: 23%;"  (click)="onClickShowForm3()">Modifier</button> 
     <button class=" btn btn-dark btn-lg" style="width: 50%;margin-left: 23%;"  (click)="onDeleteUser(currentuser._id)" >Supprimer</button> -->
-    <button class="btn btn-light btn-lg" style="width: 24%;margin-left: 6%;"  (click)="onClickShowForm3()">Modifier</button> 
-    <button class="btn btn-secondary btn-lg" style="width: 24%;margin-right: 1%;" (click)="onClickShowForm4()">Affecter</button>
-    <button class=" btn btn-dark btn-lg" style="width: 28%;margin-right: 7%;"  (click)="onDeleteUser(currentuser._id)" >Supprimer</button>
-    
-    <!-- <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github me-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Github</h6>
+                                        <button class="btn btn-light btn-lg" style="width: 24%;margin-left: 6%;" (click)="onClickShowForm3()">Modifier</button>
+                                        <button class="btn btn-secondary btn-lg" style="width: 24%;margin-right: 1%;" (click)="onClickShowForm4()">Affecter</button>
+                                        <button class=" btn btn-dark btn-lg" style="width: 31%;margin-right: 7%;" (click)="onDeleteUser(currentuser._id)">Supprimer</button>
+
+                                        <!-- <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github me-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Github</h6>
               <span class="text-secondary">bootdey</span> -->
-            </li>
-           
-            <!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    </li>
+
+                                    <!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
               <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter me-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
               <span class="text-secondary">@bootdey</span>
             </li>
@@ -363,12 +363,14 @@
               <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook me-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
               <span class="text-secondary">bootdey</span>
             </li> -->
-          </ul>
-          <br>
-        </div>
-      </div>
-    </div>
+                                </ul>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
 
-</div> </div></div>
-  </div>
-  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

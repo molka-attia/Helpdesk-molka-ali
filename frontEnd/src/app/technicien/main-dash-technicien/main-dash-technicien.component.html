@@ -48,37 +48,37 @@
       <div class="composant">
        -->
 
-       <div class="content" style="   margin-top: 50px;
+<div class="content" style="   margin-top: 50px;
        background: #ebf6ff;
        padding: 2rem 1.5rem;
        min-height: calc(100vh);">
-         
-     
-         <div > 
-           <div class="cards">
-             <div class="card-single">
-              
+
+
+    <div>
+        <div class="cards">
+            <div class="card-single">
+
                 <div>
-                  <h2>{{techticketscount}}</h2>
-                  <h3>Tickets attribués</h3>
-                 
+                    <h2>{{techticketscount}}</h2>
+                    <h3>Tickets attribués</h3>
+
                 </div>
                 <div>
-                  <span class="fa fa-ticket"></span>
+                    <span class="fa fa-ticket"></span>
                 </div>
-              </div>
-           
-     
-             <div class="card-single">
-              <div>
-                <h2>{{AllticketsCount}}</h2>
-                <h3>Tickets</h3>
-              </div>
-               <div>
-                 <span class="fa fa-ticket"></span>
-               </div>
-             </div>
-             <!-- <div class="card-single">
+            </div>
+
+
+            <div class="card-single">
+                <div>
+                    <h2>{{AllticketsCount}}</h2>
+                    <h3>Tickets</h3>
+                </div>
+                <div>
+                    <span class="fa fa-ticket"></span>
+                </div>
+            </div>
+            <!-- <div class="card-single">
               <div>
                 <h2>{{demandes}}</h2>
                 <h3>Demandes</h3>
@@ -87,20 +87,20 @@
                 <span class="fa fa-commenting-o"></span>
               </div>
              </div> -->
-             <div class="card-single">
-              <div>
-                <h2>{{ticketstrait}}</h2>
-                <h3>Tickets attribués en cours de traitement</h3>
-              </div>
-              <div>
-                <span class="fa fa-ticket"></span>
-              </div>
+            <div class="card-single">
+                <div>
+                    <h2>{{ticketstrait}}</h2>
+                    <h3>Tickets attribués en cours de traitement</h3>
+                </div>
+                <div>
+                    <span class="fa fa-ticket"></span>
+                </div>
             </div>
-            
-           </div>
-     
-           <div class="composant">
-             <!-- <div class="ventes">
+
+        </div>
+
+        <div class="composant">
+            <!-- <div class="ventes">
                <div class="case">
                  <div class="header-case">
                    <h2>Listes produits</h2>
@@ -149,42 +149,42 @@
                </div>
              </div>
       -->
-     
- <div class="stock">
-  <div class="case">
-    <div class="header-case">
-      <h2>Les groupes :</h2>
-      <!-- <button class="btn">voir plus<span class="fa fa-arrow-right"></span></button> -->
-    </div>
-    
-    <div class="body-case" *ngFor="let groupe of user.technicien_groupe; let i = index" >
-      <div class="all-users">
-        <div class="infos">
- 
-          <div>
-          <h4>{{groupe.specialite}}</h4>
-          
-        </div>
-        </div>
-        
-      <div class="user-contact">
-        <!-- <span class="fa fa-facebook"></span>
+
+            <div class="stock">
+                <div class="case">
+                    <div class="header-case">
+                        <h2>Les groupes :</h2>
+                        <!-- <button class="btn">voir plus<span class="fa fa-arrow-right"></span></button> -->
+                    </div>
+
+                    <div class="body-case" *ngFor="let groupe of user.technicien_groupe; let i = index">
+                        <div class="all-users">
+                            <div class="infos">
+
+                                <div>
+                                    <h4>{{groupe.specialite}}</h4>
+
+                                </div>
+                            </div>
+
+                            <div class="user-contact">
+                                <!-- <span class="fa fa-facebook"></span>
         <span class="fa fa-whatsapp"></span>
         <span class="fa fa-phone"></span> -->
-      </div>
-    </div>
+                            </div>
+                        </div>
 
-     
 
-     
 
-    
-     
-    </div>
-   
-  </div>
-</div>
-<!-- <div class="stock">
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div class="stock">
   <div class="case">
    
     <div class="body-case">
@@ -220,34 +220,34 @@
    
   </div>
 </div> -->
-<div class="stock">
-  <div class="case">
-   
-    <div class="body-case">
-      <div class="d-flex flex-column align-items-center text-center">
-        <br>
-        <img src="./../../../../assets/images/{{user.user_img}}" alt="Admin" class="rounded-circle p-1 btn-light" width="110" height="110">
-        <div class="mt-3">
-          <h2>{{user.name}} {{user.prenom}} </h2>
-          <h3 class="text-secondary" style="margin-top:-5%; ">{{user.poste}}</h3>
-          <!-- <h3 class="text-secondary mb-1">{{user.type}}</h3> -->
-          <!-- <p class="text-muted font-size-sm">{{user.password}}</p> -->
-          <!-- <button class="btn btn-primary">Follow</button>
+            <div class="stock">
+                <div class="case">
+
+                    <div class="body-case">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <br>
+                            <img src="./../../../../assets/images/{{user.user_img}}" alt="Admin" class="rounded-circle p-1 btn-light" width="110" height="110">
+                            <div class="mt-3">
+                                <h2>{{user.name}} {{user.prenom}} </h2>
+                                <h3 class="text-secondary" style="margin-top:-5%; ">{{user.poste}}</h3>
+                                <!-- <h3 class="text-secondary mb-1">{{user.type}}</h3> -->
+                                <!-- <p class="text-muted font-size-sm">{{user.password}}</p> -->
+                                <!-- <button class="btn btn-primary">Follow</button>
           <button class="btn btn-outline-primary">Message</button> -->
-        </div>
-      </div>
-      <br>
-     
-      <!-- <h6 class="mb-0"><img src="../../../assets/images/icons8-email-64.png"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe me-2 icon-inline">Email :{{user.email}}</h6>
+                            </div>
+                        </div>
+                        <br>
+
+                        <!-- <h6 class="mb-0"><img src="../../../assets/images/icons8-email-64.png"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe me-2 icon-inline">Email :{{user.email}}</h6>
           -->
-          <h4 class="mb-0" style="margin-left: 22%;margin-top: -8%;"><img src="../../../assets/images/telephone.png"  width="25" height="24" >  tel : <span class="text-secondary">{{user.tel}}</span></h4>
-          <h4 class="mb-0" style="margin-left: 22%;margin-top: 0%;"><img src="../../../assets/images/e-mail.png"  width="25" height="24" >  Email : <span class="text-secondary">{{user.email}}</span></h4>   
-    
-          <h4 class="mb-0" style="margin-left: 22%;margin-top: 0%;"><img src="../../../assets/images/networking.png"  width="25" height="24" >  département : <span class="text-secondary">{{user.user_departement[0].name}}</span></h4>
-    
-          <br>
-      <hr>
-      <!-- <img src="./../../../../assets/images/{{user.user_img}}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110" height="100" style="margin-left: 30%;">
+                        <h4 class="mb-0" style="margin-left: 2%;margin-top: -8%;"><img src="../../../assets/images/telephone.png" width="25" height="24"> tel : <span class="text-secondary">{{user.tel}}</span></h4>
+                        <h4 class="mb-0" style="margin-left: 2%;margin-top: 0%;"><img src="../../../assets/images/e-mail.png" width="25" height="24"> Email : <span class="text-secondary">{{user.email}}</span></h4>
+
+                        <h4 class="mb-0" style="margin-left: 2%;margin-top: 0%;"><img src="../../../assets/images/networking.png" width="25" height="24"> département : <span class="text-secondary">{{user.user_departement[0].name}}</span></h4>
+
+                        <br>
+                        <hr>
+                        <!-- <img src="./../../../../assets/images/{{user.user_img}}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110" height="100" style="margin-left: 30%;">
       <div class="mt-3">
         <h2 style="text-align: center;">{{user.name}}</h2>
         <p  style="text-align: center;"class="text-secondary mb-1">{{user.type}}</p>
@@ -259,30 +259,30 @@
         <hr>
       
         -->
-        
-       
-       
-          <div >
-           
-          </div>
-   <br>
-   <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-9 text-secondary">
-      <!-- <button  class="btn btn-primary px-4" (click)=" onClickShowForm()"value="modifier profile"></button> -->
-      <button  style="background-color: rgba(39,154,189,255);width: 60%;" type="button" class="btn btn-primary" (click)="onClickShowForm()">modifier</button>
-    </div>
-  </div>
-      </div>
-   
-    </div>
-   
-  </div>
 
 
-</div>
 
-<!-- 
+                        <div>
+
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9 text-secondary">
+                                <!-- <button  class="btn btn-primary px-4" (click)=" onClickShowForm()"value="modifier profile"></button> -->
+                                <button style="background-color: rgba(39,154,189,255);width: 60%;" type="button" class="btn btn-primary" (click)="onClickShowForm()">modifier</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- 
 <div class="calendar">
 <div class="mois-annee">
 <ul>
@@ -335,59 +335,55 @@
 <li>30<li>
 </ul>
 </div> -->
-</div></div>
+    </div>
+</div>
 <div class="model-bg" *ngIf="showEditUserForm">
 
-<a class="close-button" (click)=" onClickCloseForm()">X</a>
-<div class="edit" style="margin-top: -6%;">
-<!-- create form -->
-<form [formGroup]="formEdit" (submit)="oneEditSubmit()">
-  <div class="form-group">
-    <label for="name">Nom et Prènom</label>
-    <input type="text" class="form-control" style="width: 47%;" id="name" formControlName="name" placeholder="Entrer nom">
-    <input type="text" class="form-control" style="width: 47%; margin-left: 52%;margin-top: -7%;"  id="prenom" formControlName="prenom" placeholder="Enter Prènom">
-  </div>
-    <div class="form-group">
-      <label for="email">User Email  </label>
-      <input type="text" class="form-control" id="email" formControlName="email" placeholder="Enter user email">
-    </div>
-    <div class="form-group">
-      <label for="tel">Numèro tel  </label>
-      <input type="tel" class="form-control" id="tel" formControlName="tel" placeholder="Enter num tel">
-    </div>
-    <div class="form-group">
-      <label for="tel">poste  </label>
-      <input type="text" class="form-control" id="poste" formControlName="poste" placeholder="Enter  poste">
-    </div>
-    <div class="form-group">
-      <label for="password">User password  </label>
-      <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter user password">
-    </div>
-    <div class="form-group">
-      <label for="password">Département  </label>
-    
-     <select class="form-control" id="type" formControlName="departement_id" name="departement_id">
+    <a class="close-button" (click)=" onClickCloseForm()">X</a>
+    <div class="edit" style="margin-top: -6%;">
+        <!-- create form -->
+        <form [formGroup]="formEdit" (submit)="oneEditSubmit()">
+            <div class="form-group">
+                <label for="name">Nom et Prènom</label>
+                <input type="text" class="form-control" style="width: 47%;" id="name" formControlName="name" placeholder="Entrer nom">
+                <input type="text" class="form-control" style="width: 47%; margin-left: 52%;margin-top: -7%;" id="prenom" formControlName="prenom" placeholder="Enter Prènom">
+            </div>
+            <div class="form-group">
+                <label for="email">User Email  </label>
+                <input type="text" class="form-control" id="email" formControlName="email" placeholder="Enter user email">
+            </div>
+            <div class="form-group">
+                <label for="tel">Numèro tel  </label>
+                <input type="tel" class="form-control" id="tel" formControlName="tel" placeholder="Enter num tel">
+            </div>
+            <div class="form-group">
+                <label for="tel">poste  </label>
+                <input type="text" class="form-control" id="poste" formControlName="poste" placeholder="Enter  poste">
+            </div>
+            <div class="form-group">
+                <label for="password">User password  </label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter user password">
+            </div>
+            <div class="form-group">
+                <label for="password">Département  </label>
+
+                <select class="form-control" id="type" formControlName="departement_id" name="departement_id">
       <option *ngFor="let department of fetchedDepatments; let i = index" value="{{department._id}}" >{{department.name}}</option>
 
     </select>
-  </div>
- 
-    <div class="form-group">
-      <label for="event_img">User Image</label>
-      <input type="file" #filePicker (change)="onImagePicked2($event)" class="form-control" id="userimage" placeholder="Enter user image">
-      <div class="image-preview" *ngIf="imagePreview !=='' && imagePreview">
-        <img [src]="imagePreview" alt="">
-      </div>
+            </div>
+
+            <div class="form-group">
+                <label for="event_img">User Image</label>
+                <input type="file" #filePicker (change)="onImagePicked2($event)" class="form-control" id="userimage" placeholder="Enter user image">
+                <div class="image-preview" *ngIf="imagePreview !=='' && imagePreview">
+                    <img [src]="imagePreview" alt="">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+
     </div>
-<button type="submit" class="btn btn-primary">Envoyer</button>
-</form>
-
-</div>
 
 
 </div>
-
-
-
-
-

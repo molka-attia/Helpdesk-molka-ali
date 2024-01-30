@@ -1,13 +1,9 @@
 Backend : 
-
   -- Install node modules : npm install
-  
   -- Run : npm start 
 
 Frontend :
-
-  -- Install node modules : npm install
-  
+  -- Install node modules : npm install 
   -- Run : npm run ng serve
 
 Admin : 

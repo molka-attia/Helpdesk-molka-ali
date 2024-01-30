@@ -29,7 +29,9 @@ public user:User;
       this.authListenerSubs= this.authService.getAuthStatusListener().subscribe(isAuthenticated=>{
         this.userIsAuthenticated= isAuthenticated;
       });
-  
+   
+      //this.userIsAuthenticated= isAuthenticated;
+
       /** technicienId = localStorage.getItem('user');
   constructor(private userService : AdminService) { }
   */
